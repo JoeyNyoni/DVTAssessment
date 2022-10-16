@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ArtistComponent } from './components/artist/artist.component';
 import { ArtistViewComponent } from './pages/artist-view/artist-view.component';
 import { AlbumComponent } from './components/album/album.component'; 

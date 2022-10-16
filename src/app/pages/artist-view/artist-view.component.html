@@ -1,4 +1,5 @@
 <app-searchbar></app-searchbar>
+
 <div class="w100">
     <div class="back-button">
         <a class="font-bold" [routerLink]="['/home']" routerLinkActive="active">Back</a>
@@ -12,7 +13,7 @@
                 </div>
                 <ul class="tracklist">
                     <li *ngFor="let track of tracks; let i = index">
-                        <p>{{i + 1}}. {{track.title}} <span class="duration">{{track.duration | date:'m:ss'}}</span> </p>
+                        <p>{{i + 1}}. {{track.title}} <span class="duration">{{track.duration | date:"mm:ss" }}</span> </p>
                     </li>
                 </ul>
             </div>
