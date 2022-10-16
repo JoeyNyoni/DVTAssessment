@@ -13,7 +13,7 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
   getArtistSearchResult(searchTerm: string) {
-    this.http.get(this.API + `search/artist/`, {params: {searchTerm}}).pipe(map(response => {
+    return this.http.get(`${this.API}search/artist?q=${searchTerm}`).pipe(map((response) => {
       return response;
     }));
   }

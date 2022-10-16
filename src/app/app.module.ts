@@ -10,6 +10,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
+    HttpClientModule,
     MatIconModule,
     MatInputModule
   ],
