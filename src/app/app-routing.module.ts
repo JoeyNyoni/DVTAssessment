@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { HomeComponent } from './pages/home/home.component';
 
 export const Navigation = {
@@ -7,7 +8,7 @@ export const Navigation = {
 }
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: SearchbarComponent },
   { path: Navigation.Home, component: HomeComponent },
   { path: '*', pathMatch: 'full', redirectTo: Navigation.Home }
 ];
