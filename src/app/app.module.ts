@@ -8,15 +8,19 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ArtistComponent } from './components/artist/artist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchbarComponent,
+    ArtistComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     LayoutModule,
     FormsModule,
     HttpClientModule,
+    MatCardModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule
   ],

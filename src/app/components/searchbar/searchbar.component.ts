@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { SearchService } from 'src/app/services/search.service';
-import { fromEvent } from 'rxjs';
+import { fromEvent, Observable } from 'rxjs';
+import { Artist } from 'src/app/models/Artist';
 
 @Component({
   selector: 'app-searchbar',
@@ -11,6 +12,8 @@ import { fromEvent } from 'rxjs';
 export class SearchbarComponent implements OnInit, AfterViewInit {
 
   @ViewChild('input', { static: true }) input: ElementRef; 
+  
+  searchResults: Observable<Artist[]>;
   
   constructor(private service: SearchService) { }
 
@@ -23,13 +26,12 @@ export class SearchbarComponent implements OnInit, AfterViewInit {
       debounceTime(1000),
       distinctUntilChanged()
     ).subscribe((searchTerm: string) => {
-      this.service.getArtistSearchResult(searchTerm).subscribe((data) => {
-        console.log(data);
+      this.service.getArtistSearchResult(searchTerm).subscribe((res: any) => {
+        this.searchResults = res.data.length >= 3 ? res.data.slice(0, 3) :  res.data;
       })
     });
   }
 
-  ngAfterViewInit(): void {
-  }
+  ngAfterViewInit(): void {}
 
 }

@@ -2,7 +2,7 @@ import { Url } from "url";
 
 export class Artist {
     id: number;
-    namae: string;
+    name: string;
     link: Url;
     share: Url;
     picture: Url;

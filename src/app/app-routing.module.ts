@@ -8,7 +8,16 @@ export const Navigation = {
 }
 
 const routes: Routes = [
-  { path: '', component: SearchbarComponent },
+  { 
+    path: '', component: HomeComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: Navigation.Home,
+        pathMatch: 'full'
+      },
+    ]
+  },
   { path: Navigation.Home, component: HomeComponent },
   { path: '*', pathMatch: 'full', redirectTo: Navigation.Home }
 ];

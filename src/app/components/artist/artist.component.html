@@ -1,0 +1,9 @@
+<div class="w100">
+    <mat-card>
+        <img mat-card-image src="{{artist.picture}}" alt="{{artist.name}}" (click)="redirectToArtistPage" />
+        <mat-card-content>
+            <p>{{artist.name}}</p>
+            <p>{{artist.nb_fan >= 1000 ? (artist.nb_fan / 1000).toFixed(0) + 'K' : artist.nb_fan}} Fans</p>
+        </mat-card-content>
+    </mat-card>
+</div>
