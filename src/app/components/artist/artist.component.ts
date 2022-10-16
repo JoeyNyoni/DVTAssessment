@@ -14,11 +14,10 @@ export class ArtistComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  redirectToArtistPage() {
-    this.router.navigate([Navigation.ArtistView, {data: this.artist}]);
+  redirectToArtistPage(artist: Artist): void {
+    this.router.navigate([Navigation.ArtistView, {data: artist}]);
   }
 
 }

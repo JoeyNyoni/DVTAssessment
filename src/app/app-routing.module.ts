@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ArtistViewComponent } from './pages/artist-view/artist-view.component';
 import { HomeComponent } from './pages/home/home.component';
 
 export const Navigation = {
-  Home: 'home'
+  Home: 'home',
+  ArtistView: 'artistView'
 }
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     ]
   },
   { path: Navigation.Home, component: HomeComponent },
+  { path: Navigation.ArtistView, component: ArtistViewComponent},
   { path: '*', pathMatch: 'full', redirectTo: Navigation.Home }
 ];
 

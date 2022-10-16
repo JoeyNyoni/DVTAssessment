@@ -17,10 +17,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   searchArtists(searchTerm: string) {
-    console.log(searchTerm);
-      this.service.getArtistSearchResult(searchTerm).subscribe((res: any) => {
-        this.searchResults = res.data.length >= 3 ? res.data.slice(0, 3) :  res.data;
-      });
+    this.service.getArtistSearchResult(searchTerm).subscribe((res: any) => {
+      this.searchResults = res.data.length >= 3 ? res.data.slice(0, 3) :  res.data;
+    });
   }
 
 }
