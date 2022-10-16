@@ -1,1 +1,30 @@
-<p>artist-view works!</p>
+<div class="w100">
+    <div class="back-button">
+        <a class="font-bold" [routerLink]="['/home']" routerLinkActive="active">Back</a>
+    </div>
+    <mat-grid-list cols="2" rowHeight="400px">
+        <mat-grid-tile cols="3" rows="3"><img src="{{artist.picture_big}}" alt="{{artist.name}}"></mat-grid-tile>
+        <mat-grid-tile cols="1" rows="3">
+            <div>
+                <div>
+                    <h3 class="font-bold">Top Tracks</h3>
+                </div>
+                <ul class="tracklist">
+                    <li *ngFor="let track of tracks; let i = index">
+                        <p>{{i + 1}}. {{track.title}} <span class="duration">{{track.duration | date:'m:ss'}}</span> </p>
+                    </li>
+                </ul>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div class="albums">
+    <h3 class="font-bold">Albums</h3>
+    <mat-grid-list cols="4" rowHeight="1:1" [gutterSize]="'10px'">
+        <mat-grid-tile *ngFor="let album of albums">
+            <app-album [album]="album"></app-album>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+

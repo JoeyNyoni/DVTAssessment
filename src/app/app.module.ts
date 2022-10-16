@@ -14,7 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ArtistComponent } from './components/artist/artist.component';
-import { ArtistViewComponent } from './pages/artist-view/artist-view.component'; 
+import { ArtistViewComponent } from './pages/artist-view/artist-view.component';
+import { AlbumComponent } from './components/album/album.component'; 
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ArtistViewComponent } from './pages/artist-view/artist-view.component';
     SearchbarComponent,
     ArtistComponent,
     ArtistViewComponent,
+    AlbumComponent,
   ],
   imports: [
     BrowserModule,

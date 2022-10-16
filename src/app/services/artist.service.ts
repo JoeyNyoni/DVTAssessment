@@ -12,8 +12,14 @@ export class ArtistService {
 
   constructor(private http: HttpClient) { }
 
-  getArtistTopTracks(artist: Artist) {
-    return this.http.get(this.API + `artist/${artist.id}/top`).pipe(map(response => {
+  getArtistTopTracks(artistId: number) {
+    return this.http.get(`${this.API}artist/${artistId}/top`).pipe(map(response => {
+      return response;
+    }));
+  }
+
+  getArtistAlbums(artistId: number) {
+    return this.http.get(`${this.API}artist/${artistId}/albums`).pipe(map(response => {
       return response;
     }));
   }

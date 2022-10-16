@@ -17,7 +17,7 @@ export class ArtistComponent implements OnInit {
   ngOnInit(): void {}
 
   redirectToArtistPage(artist: Artist): void {
-    this.router.navigate([Navigation.ArtistView, {data: artist}]);
+    this.router.navigate([Navigation.ArtistView], {queryParams: artist});
   }
 
 }
