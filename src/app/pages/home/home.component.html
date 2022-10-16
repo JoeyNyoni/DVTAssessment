@@ -1,1 +1,9 @@
-<app-searchbar></app-searchbar>
+<app-searchbar (term)="searchArtists($event)" ></app-searchbar>
+
+<div *ngIf="this.searchResults">
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let result of searchResults">
+            <app-artist [artist]="result"></app-artist>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

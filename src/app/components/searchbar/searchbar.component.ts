@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
 import { SearchService } from 'src/app/services/search.service';
 import { fromEvent, Observable } from 'rxjs';
@@ -9,13 +9,14 @@ import { Artist } from 'src/app/models/Artist';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.sass']
 })
-export class SearchbarComponent implements OnInit, AfterViewInit {
+export class SearchbarComponent implements OnInit {
 
-  @ViewChild('input', { static: true }) input: ElementRef; 
+  @ViewChild('input', { static: true }) input: ElementRef;
   
-  searchResults: Observable<Artist[]>;
+  @Output() 
+  term: EventEmitter<String> = new EventEmitter<String>();
   
-  constructor(private service: SearchService) { }
+  constructor() { }
 
   ngOnInit(): void {
     fromEvent(this.input.nativeElement, 'keyup').pipe(
@@ -26,12 +27,8 @@ export class SearchbarComponent implements OnInit, AfterViewInit {
       debounceTime(1000),
       distinctUntilChanged()
     ).subscribe((searchTerm: string) => {
-      this.service.getArtistSearchResult(searchTerm).subscribe((res: any) => {
-        this.searchResults = res.data.length >= 3 ? res.data.slice(0, 3) :  res.data;
-      })
+      this.term.emit(searchTerm);
     });
   }
-
-  ngAfterViewInit(): void {}
 
 }
