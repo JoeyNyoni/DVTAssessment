@@ -20,7 +20,6 @@ export class ArtistViewComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.artist = <Artist>this.route.snapshot.queryParams;
-    console.log(this.artist);
   }
 
   ngAfterViewInit(): void {
@@ -30,7 +29,6 @@ export class ArtistViewComponent implements OnInit, AfterViewInit {
 
     this.service.getArtistAlbums(this.artist.id).subscribe((response: any) => {
       this.albums = response.data.length >= 4 ? response.data.slice(0, 4) : response.data;
-      console.log(this.albums);
     });
   }
 }

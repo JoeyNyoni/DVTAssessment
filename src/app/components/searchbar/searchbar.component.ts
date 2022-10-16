@@ -1,8 +1,6 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { debounceTime, distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { SearchService } from 'src/app/services/search.service';
-import { fromEvent, Observable } from 'rxjs';
-import { Artist } from 'src/app/models/Artist';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
